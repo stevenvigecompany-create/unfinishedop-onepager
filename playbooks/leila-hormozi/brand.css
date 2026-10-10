@@ -1,0 +1,107 @@
+/* Unfinished On Purpose — brand.css v0.1
+   Colors, type and buttons for unfinishedonpurpose site + The Routine.
+   Fonts are free Google Fonts. */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  /* core palette */
+  --uop-ink:      #0B0B0C;  /* primary text, dark surfaces */
+  --uop-graphite: #1E1E21;  /* dark cards, code blocks */
+  --uop-steel:    #8B8B90;  /* secondary text, meta */
+  --uop-rule:     #DCD8D1;  /* hairlines, borders on paper */
+  --uop-paper:    #F4F1EC;  /* primary light background */
+  --uop-white:    #FFFFFF;  /* cards on paper */
+  --uop-primer:   #FF4F12;  /* the ONE accent: the unfinished part */
+  --uop-primer-dark: #D93D05; /* hover / pressed */
+  --uop-primer-tint: #FFE3D6; /* highlight bg, never for text */
+
+  /* semantic */
+  --uop-bg: var(--uop-paper);
+  --uop-fg: var(--uop-ink);
+  --uop-muted: #5E5E63;      /* AA on paper; use steel only on ink */
+  --uop-accent: var(--uop-primer);
+
+  /* type */
+  --uop-font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --uop-font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --uop-font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  --uop-radius: 4px;
+  --uop-radius-pill: 999px;
+  --uop-space: 8px;
+}
+
+[data-theme="dark"] {
+  --uop-bg: var(--uop-ink);
+  --uop-fg: var(--uop-paper);
+  --uop-muted: var(--uop-steel);
+  --uop-rule: #2E2E33;
+}
+
+html { background: var(--uop-bg); color: var(--uop-fg); }
+body { font: 400 17px/1.6 var(--uop-font-body); -webkit-font-smoothing: antialiased; }
+
+h1, h2, h3, .uop-display {
+  font-family: var(--uop-font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  text-transform: none;            /* sentence case, always */
+}
+h1 { font-size: clamp(40px, 6vw, 72px); }
+h2 { font-size: clamp(28px, 3.6vw, 40px); }
+h3 { font-size: 22px; letter-spacing: -0.01em; }
+
+.uop-label, .uop-meta {           /* issue numbers, tags, version stamps */
+  font: 500 12px/1.4 var(--uop-font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--uop-muted);
+}
+code, pre, kbd { font-family: var(--uop-font-mono); font-size: 0.92em; }
+pre { background: var(--uop-graphite); color: var(--uop-paper); padding: 20px; border-radius: var(--uop-radius); overflow-x: auto; }
+
+a { color: inherit; text-decoration: underline; text-decoration-color: var(--uop-accent); text-underline-offset: 3px; text-decoration-thickness: 2px; }
+a:hover { color: var(--uop-accent); }
+hr { border: 0; border-top: 1px solid var(--uop-rule); }
+::selection { background: var(--uop-primer); color: var(--uop-ink); }
+
+/* buttons */
+.uop-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font: 600 15px/1 var(--uop-font-display);
+  letter-spacing: -0.005em;
+  padding: 14px 22px;
+  border-radius: var(--uop-radius);
+  border: 1.5px solid transparent;
+  cursor: pointer; text-decoration: none;
+  transition: background .15s ease, color .15s ease, border-color .15s ease, transform .05s ease;
+}
+.uop-btn:active { transform: translateY(1px); }
+.uop-btn:focus-visible { outline: 2px solid var(--uop-primer); outline-offset: 3px; }
+
+.uop-btn--primary { background: var(--uop-fg); color: var(--uop-bg); }
+.uop-btn--primary:hover { background: var(--uop-primer); color: var(--uop-ink); }
+
+.uop-btn--accent { background: var(--uop-primer); color: var(--uop-ink); }
+.uop-btn--accent:hover { background: var(--uop-primer-dark); color: var(--uop-white); }
+
+.uop-btn--ghost { background: transparent; color: var(--uop-fg); border-color: var(--uop-fg); }
+.uop-btn--ghost:hover { border-color: var(--uop-primer); color: var(--uop-primer); }
+
+/* trailing "→" or cursor on CTAs */
+.uop-btn--cursor::after { content: ""; width: 0.55em; height: 2px; background: var(--uop-primer); display: inline-block; align-self: flex-end; margin-bottom: 2px; }
+
+/* subscribe field (The Routine) */
+.uop-subscribe { display: flex; gap: 8px; max-width: 460px; }
+.uop-input {
+  flex: 1; font: 400 16px/1 var(--uop-font-body);
+  padding: 14px 16px; border-radius: var(--uop-radius);
+  border: 1.5px solid var(--uop-rule); background: var(--uop-white); color: var(--uop-ink);
+}
+.uop-input:focus { outline: none; border-color: var(--uop-ink); }
+
+/* small pieces */
+.uop-tag { font: 500 11px/1 var(--uop-font-mono); letter-spacing: .1em; text-transform: uppercase; padding: 6px 8px; border: 1px solid currentColor; border-radius: 2px; }
+.uop-tag--live::before { content: "● "; color: var(--uop-primer); }
+.uop-accent { color: var(--uop-primer); }
