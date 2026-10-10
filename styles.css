@@ -1,5 +1,6 @@
-/* Unfinished On Purpose — single stylesheet. Neutral monochrome placeholder; swap tokens below for /workspace/brand/uop/brand.css later. */
-:root{--bg:#fff;--fg:#111;--muted:#666;--line:#e5e5e5;--soft:#f6f6f6;--accent:#111;--accent-fg:#fff;--radius:10px;--font:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+/* Unfinished On Purpose — Open Loop brand (A). Tokens from /brand/brand.css. */
+@import url("/brand/brand.css");
+:root{--bg:var(--uop-bg);--fg:var(--uop-fg);--muted:var(--uop-muted);--line:var(--uop-rule);--soft:var(--uop-white);--accent:var(--uop-ink);--accent-fg:var(--uop-paper);--radius:var(--uop-radius);--font:var(--uop-font-body)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--font)}
 a{color:var(--fg)}
@@ -23,3 +24,8 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0
 .g{display:grid;gap:16px}.g3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
 .ic{font-size:22px}
 .embed{margin:16px 0}
+
+h1,h2,h3,.logo,.btn{font-family:var(--uop-font-display)}
+.btn:hover{background:var(--uop-primer);border-color:var(--uop-primer);color:var(--uop-white)}
+a:hover{color:var(--uop-primer-dark)}
+.brandlogo{height:40px;width:auto}.wordmark{display:block;height:56px;width:auto;margin:12px 0}
